@@ -1,0 +1,257 @@
+{
+  "general": {
+    "step-info": "步驟 {step}/{total}: ",
+    "chord-speed-unit": "和弦/分鐘",
+    "chords-loading-message": "載入和弦中...",
+    "chords-loaded-message": "和弦已成功載入。",
+    "device-layout-loading-message": "載入裝置佈局中...",
+    "device-layout-loaded-message": "裝置佈局已成功載入。",
+    "cancel-action": "取消",
+    "close-action": "關閉",
+    "delete-confirm-button": "是，我確定要刪除。",
+    "delete-single-confirm-button": "是，我確定要刪除。",
+    "start-action": "開始",
+    "pause-action": "暫停",
+    "enter-action": "進入",
+    "load-device-layout-and-chords-from-device": "從裝置載入裝置佈局和和弦",
+    "device-layout-and-chords-loaded-message": "裝置佈局和和弦已成功載入。"
+  },
+  "home-page": {
+    "website-name": "Chara Lite 常陳四・簡",
+    "summary": [
+      "專為",
+      "CharaChorder Lite",
+      "量身打造的非官方和弦練習工具"
+    ],
+    "source-code": "原始碼",
+    "remark": "Chara（發音：/ˈkɛərə/），即常陳四，也叫獵犬座β，是獵犬座第二亮星。"
+  },
+  "nav": {
+    "page": {
+      "home": {
+        "title": "首頁",
+        "tooltip": "前往首頁",
+        "aria-label": "首頁連結"
+      },
+      "settings": {
+        "title": "設定",
+        "tooltip": "前往設定頁面",
+        "aria-label": "設定頁面連結"
+      },
+      "information": {
+        "title": "資訊",
+        "tooltip": "前往資訊頁面",
+        "aria-label": "資訊頁面連結"
+      },
+      "chords": {
+        "title": "和弦",
+        "tooltip": "前往和弦頁面",
+        "aria-label": "和弦頁面連結"
+      },
+      "adaptation": {
+        "title": "適應",
+        "tooltip": "前往適應頁面",
+        "aria-label": "適應頁面連結",
+        "lock-message": "在設定頁面載入裝置佈局和和弦，以使用適應頁面。"
+      },
+      "realization": {
+        "title": "實現",
+        "tooltip": "前往實現頁面",
+        "aria-label": "實現頁面連結",
+        "lock-message": "你需要至少有一個和弦通過適應階段，才能使用實現頁面。"
+      },
+      "accumulation": {
+        "title": "積累",
+        "tooltip": "前往積累頁面",
+        "aria-label": "積累頁面連結",
+        "lock-message": "你需要至少有一個和弦通過實現階段，才能使用積累頁面。"
+      }
+    },
+    "open-hotkey-dialog": {
+      "tooltip": "開啟快捷鍵對話框"
+    }
+  },
+  "settings-page": {
+    "title": "設定",
+    "panel-header": {
+      "quick-setting": "快捷設定",
+      "os-keyboard-layout": "作業系統鍵盤佈局",
+      "data-deletion": "資料刪除",
+      "visibility": "顯示",
+      "ui-language": "介面語言",
+      "phase": "階段"
+    }
+  },
+  "quick-setting": {
+    "device-layout-non-loaded": "未載入裝置佈局",
+    "device-layout-loaded": "已載入裝置佈局",
+    "chord-stats": "{count} 個已載入的和弦"
+  },
+  "os-keyboard-layout-setting": {
+    "search-placeholder": "搜尋佈局...",
+    "search-no-entry": "找不到符合的佈局。",
+    "open-reference-button-tooltip": "開啟此佈局的參考網站",
+    "reset-button-tooltip": "重置"
+  },
+  "data-deletion-setting": {
+    "delete-loaded-device-layout": "刪除已載入的裝置佈局",
+    "delete-all-loaded-chords": "刪除所有已載入的和弦",
+    "device-layout-deleted": "已載入的裝置佈局已被刪除。",
+    "chords-deleted": "所有已載入的和弦已被刪除。"
+  },
+  "delete-device-layout-confirm-dialog": {
+    "description": "你確定要刪除已載入的裝置佈局嗎？"
+  },
+  "delete-chords-confirm-dialog": {
+    "description": "你確定要刪除所有已載入的和弦嗎？"
+  },
+  "visibility-setting": {
+    "speedometer": "速度計"
+  },
+  "phase-setting": {
+    "adaptation": "適應",
+    "realization": "實現",
+    "practice-set-size": {
+      "label": "練習組大小",
+      "hint": "同時練習的和弦數量"
+    },
+    "min-reps-to-pass": {
+      "label": "最小練習次數",
+      "hint": "一個和弦要通過該階段需要達到的練習次數"
+    },
+    "min-speed-to-pass": {
+      "label": "最小通過速度（分速）",
+      "hint": "一個和弦要通過該階段需要達到的輸入速度"
+    }
+  },
+  "chords-page": {
+    "load-chords-from-device-button": "從裝置載入和弦",
+    "load-chords-from-file-button": "從檔案載入和弦",
+    "file-input-aria-label": "檔案輸入，用於選擇要載入到此應用程式的和弦庫檔案",
+    "table-column": {
+      "chord": "和弦",
+      "input": "輸入",
+      "output-text": "輸出 (文字)",
+      "output-keys": "輸出 (鍵)",
+      "ancestors": "上層和弦",
+      "compound": "複合和弦",
+      "dynamic-library": "動態和弦庫",
+      "adaptation": "適應",
+      "realization": "實現",
+      "accumulation": "積累",
+      "chpm": "分速",
+      "count": "次數"
+    },
+    "selected-chord-chip-text": "已選取 {count} 個和弦",
+    "table-count-summary": "{filteredCount}/{totalCount} 個和弦",
+    "bookmark-single": "加書籤",
+    "unbookmark-single": "取消加書籤",
+    "block-single": "封鎖",
+    "unblock-single": "解封",
+    "bookmark-selected": "對選取的和弦加書籤",
+    "unbookmark-selected": "對選取的和弦加書籤",
+    "block-selected": "封鎖選取的和弦",
+    "unblock-selected": "解封選取的和弦",
+    "custom-practice": "自訂練習"
+  },
+  "chord-search": {
+    "placeholder": "搜尋和弦...",
+    "setting": {
+      "chord-input": "和弦輸入",
+      "chord-output": "和弦輸出"
+    }
+  },
+  "chord-filter": {
+    "tooltip": "篩選和弦",
+    "bookmark-filter": {
+      "label": "書籤狀態",
+      "all": "全部",
+      "bookmarked": "已加書籤",
+      "unbookmarked": "未加書籤"
+    },
+    "block-filter": {
+      "label": "封鎖狀態",
+      "all": "全部",
+      "blocked": "已封鎖",
+      "unblocked": "未封鎖"
+    },
+    "dynamic-library-filter": {
+      "label": "動態和弦庫",
+      "all": "全部",
+      "base": "基礎"
+    }
+  },
+  "information-page": {
+    "description": "本網站，Chara Lite 常陳四・簡，是專為 CharaChorder Lite 所設計的一個非官方和弦練習工具。",
+    "page-introductions-title": "頁面介紹",
+    "chords-page": {
+      "title": "和弦頁面",
+      "description": [
+        "在和弦頁面，你可以載入和檢視你的和弦庫，並查看每個和弦在每個階段的練習統計。",
+        "你可以將和弦加上書籤，使它們優先進入練習循環。",
+        "你可以封鎖和弦，將它們排除於練習循環之外。",
+        "你可以選擇數個和弦後進入自訂練習模式。",
+        "你可以依據各種條件搜尋、篩選和排序和弦。"
+      ]
+    },
+    "practice-phases": {
+      "title": "練習階段",
+      "adaptation-page": {
+        "title": "適應頁面",
+        "description": "適應頁面能藉由圖像輔助，協助你熟悉新和弦的手指動作。"
+      },
+      "realization-page": {
+        "title": "實現頁面",
+        "description": "實現頁面能藉由 5 秒延遲顯示圖像補助，加深你對和弦和其對應的手指動作的記憶。"
+      },
+      "accumulation-page": {
+        "title": "積累頁面",
+        "description": "積累頁面能協助你複習你所學過的和弦。"
+      },
+      "description": [
+        "這些頁面是照著我提出的和弦練習循環，CHARA 循環，來設計的。",
+        {
+          "url": "https://andy23512.github.io/blog-zh-tw/tangent-%E5%B0%8D%E5%AD%B8%E7%BF%92%E4%BD%BF%E7%94%A8-charachorder-%E8%BC%B8%E5%85%A5%E8%A3%9D%E7%BD%AE%E8%8B%B1%E6%96%87%E5%92%8C%E5%BC%A6%E8%BC%B8%E5%85%A5%E7%9A%84%E5%BB%BA%E8%AD%B0/#CHARA-%E5%BE%AA%E7%92%B0%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F",
+          "text": "你可以在這篇部落格文章中找到更多有關 CHARA 循環的詳細說明。"
+        }
+      ]
+    },
+    "settings-page": {
+      "title": "設定頁面",
+      "description": "在設定頁面，你可以調整工具的各種設定，包含裝置佈局、和弦庫、作業系統裝置佈局、練習階段的參數、元件的可見性、介面語言等。"
+    },
+    "disclaimers": {
+      "title": "免責聲明",
+      "description": [
+        [
+          "本網站與 CharaChorder 沒有隸屬、關聯、授權、認可，或任何正式關聯的關係。他們的官方網站可以在 ",
+          "{{charachorder url}}",
+          " 上找到。"
+        ],
+        "你的打字統計和設定資料會保存在你的瀏覽器的 localStorage 之中。這些資料不會透過本工具傳送到其他任何地方。"
+      ]
+    }
+  },
+  "hotkey-dialog": {
+    "title": "快捷鍵"
+  },
+  "hotkey": {
+    "global": {
+      "name": "全域共通",
+      "toggle-hotkey-dialog": "開啟或關閉快捷鍵對話框"
+    },
+    "practice-phase-pages": {
+      "name": "練習階段頁面（適應、實現、積累）",
+      "start-or-resume-the-practice": "開始或繼續練習",
+      "pause-the-practice": "暫停練習"
+    }
+  },
+  "custom-practice-setting-dialog": {
+    "title": "自訂練習設定",
+    "hint-display-mode": {
+      "label": "提示顯示模式",
+      "always": "總是顯示提示（如適應頁面）",
+      "timeout": "5 秒超時後顯示提示（如實現頁面）"
+    }
+  }
+}

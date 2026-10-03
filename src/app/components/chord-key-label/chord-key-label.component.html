@@ -1,0 +1,28 @@
+@if (chordKeyLabel(); as label) {
+  @switch (label.type) {
+    @case (ChordKeyLabelType.Char) {
+      <span [class]="{ 'bg-chara-900/50': label.isWindowsAltKey }">{{
+        label.c
+      }}</span>
+    }
+    @case (KeyLabelType.String) {
+      <span class="underline">{{ label.c }}</span>
+    }
+    @case (KeyLabelType.Icon) {
+      <mat-icon class="align-middle">{{ label.c | iconGuard }}</mat-icon>
+    }
+    @default {
+      {{ chordKeyLabel() | json }}
+    }
+  }
+  @if (label.variant) {
+    <sub class="absolute bottom-0 right-0">
+      @if (label.variant === ActionVariant.Left) {
+        L
+      }
+      @if (label.variant === ActionVariant.Right) {
+        R
+      }
+    </sub>
+  }
+}

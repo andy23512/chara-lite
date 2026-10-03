@@ -1,0 +1,243 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  model,
+  OnDestroy,
+  OnInit,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { HotkeysService } from '@ngneat/hotkeys';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TranslatePipe } from '@ngx-translate/core';
+import {
+  debounceTime,
+  delay,
+  merge,
+  of,
+  Subject,
+  switchMap,
+  tap,
+  timer,
+} from 'rxjs';
+import { VisibleDirective } from 'src/app/directives/visible.directive';
+import { ChordGroup } from 'src/app/models/chord.models';
+import { HintDisplayMode } from 'src/app/models/hint-display-mode.models';
+import { Phase } from 'src/app/models/phase.models';
+import { IconGuardPipe } from 'src/app/pipes/icon-guard.pipe';
+import { RealTitleCasePipe } from 'src/app/pipes/real-title-case.pipe';
+import { ChordPracticeViewStore } from 'src/app/stores/chord-practice-view.store';
+import { DeviceLayoutStore } from 'src/app/stores/device-layout.store';
+import { CcliteLayoutComponent } from '../cclite-layout/cclite-layout.component';
+import { DynamicLibraryAncestorsChipComponent } from '../dynamic-library-ancestors-chip/dynamic-library-ancestors-chip.component';
+import { SpeedometerComponent } from '../speedometer/speedometer.component';
+import { StepperComponent } from '../stepper/stepper.component';
+
+@UntilDestroy()
+@Component({
+  selector: 'app-chord-practice-view',
+  templateUrl: 'chord-practice-view.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  host: {
+    class: 'flex flex-col h-full',
+  },
+  imports: [
+    FormsModule,
+    CcliteLayoutComponent,
+    MatIcon,
+    IconGuardPipe,
+    TranslatePipe,
+    RealTitleCasePipe,
+    MatButton,
+    StepperComponent,
+    DynamicLibraryAncestorsChipComponent,
+    SpeedometerComponent,
+    VisibleDirective,
+  ],
+  providers: [ChordPracticeViewStore],
+})
+export class ChordPracticeViewComponent implements OnInit, OnDestroy {
+  private readonly chordPracticeViewStore = inject(ChordPracticeViewStore);
+  private readonly deviceLayoutStore = inject(DeviceLayoutStore);
+  private readonly hotkeysService = inject(HotkeysService);
+
+  public practiceSet = input.required<ChordGroup[]>();
+  public phase = input.required<Phase | null>();
+  public hintDisplayMode = input<HintDisplayMode>('always');
+  public chpm = this.chordPracticeViewStore.chpm;
+
+  public input = viewChild.required<ElementRef<HTMLInputElement>>('input');
+  public readonly shortcuts = {
+    startPractice: 'space',
+    pausePractice: 'escape',
+  };
+
+  protected readonly isFocus = signal(false);
+  protected readonly inputValue = model<string>('');
+  private readonly entrySubject = new Subject<{
+    timestamp: number;
+    value: string;
+  }>();
+  private readonly debouncedEntry$ = this.entrySubject
+    .asObservable()
+    .pipe(debounceTime(100));
+  private readonly restartAnimationSubject = new Subject<void>();
+  private readonly animationFrameIndex = toSignal(
+    this.restartAnimationSubject
+      .asObservable()
+      .pipe(switchMap(() => timer(0, 2000))),
+  );
+
+  private readonly restartIdleTimerSubject = new Subject<void>();
+  private readonly isIdle = toSignal(
+    this.restartIdleTimerSubject.asObservable().pipe(
+      switchMap(() =>
+        merge(
+          of(false),
+          of(true).pipe(
+            delay(5000),
+            tap(() => {
+              if (this.hintDisplayMode() === 'timeout') {
+                this.restartAnimationSubject.next();
+              }
+            }),
+          ),
+        ),
+      ),
+    ),
+  );
+  protected showHint = computed(() => {
+    return (
+      this.isFocus() && (this.hintDisplayMode() === 'always' || this.isIdle())
+    );
+  });
+
+  protected readonly history = this.chordPracticeViewStore.history;
+  protected readonly queue = this.chordPracticeViewStore.queue;
+
+  protected currentChord = computed(() => this.queue()[0]?.nonBlockedChords[0]);
+  protected currentChordDynamicLibraryAncestors = computed(() => {
+    const currentChord = this.currentChord();
+    if (!currentChord) {
+      return [];
+    }
+    return currentChord.dynamicLibraryAncestors;
+  });
+  protected totalSteps = computed(() => {
+    const currentChord = this.currentChord();
+    if (!currentChord) {
+      return 0;
+    }
+    return currentChord.compoundAncestors.length + 1;
+  });
+  protected chordStepIndex = computed(() => {
+    const totalSteps = this.totalSteps();
+    const animationFrameIndex = this.animationFrameIndex();
+    if (!totalSteps || animationFrameIndex === undefined) {
+      return 0;
+    }
+    return animationFrameIndex % totalSteps;
+  });
+
+  protected highlightedPositionCodes = computed(() => {
+    const profileLayoutMap = this.deviceLayoutStore.profileLayoutMap();
+    const chordStepIndex = this.chordStepIndex();
+    const totalSteps = this.totalSteps();
+    const currentChord = this.currentChord();
+    if (!profileLayoutMap['A'] || !currentChord || !totalSteps) {
+      return [];
+    }
+    const profileAPrimaryLayer = profileLayoutMap['A'][0];
+    const input =
+      chordStepIndex === totalSteps - 1
+        ? currentChord.input
+        : currentChord.compoundAncestors[chordStepIndex].input;
+    const inputActionCodes: number[] = input.filter((a: number) => a !== 0);
+    const positionCodes = inputActionCodes.map((actionCode) =>
+      profileAPrimaryLayer.indexOf(actionCode),
+    );
+    if (positionCodes.includes(-1)) {
+      console.warn(
+        'Some action codes in the current chord are not found in profile A primary layer:',
+        inputActionCodes,
+      );
+      return [];
+    }
+    return positionCodes;
+  });
+
+  constructor() {
+    effect(() => {
+      const _ = this.chordPracticeViewStore.lastCorrectChordTime();
+      this.inputValue.set('');
+    });
+    effect(() => {
+      const _ = this.chordPracticeViewStore.queue();
+      this.restartAnimationSubject.next();
+      this.restartIdleTimerSubject.next();
+    });
+  }
+
+  public ngOnInit(): void {
+    this.hotkeysService
+      .addShortcut({
+        keys: this.shortcuts.startPractice,
+      })
+      .subscribe(() => {
+        this.startPractice();
+      });
+    this.hotkeysService
+      .addShortcut({
+        keys: this.shortcuts.pausePractice,
+      })
+      .subscribe(() => {
+        this.input().nativeElement.blur();
+      });
+    this.chordPracticeViewStore.fillQueue(this.practiceSet());
+    this.debouncedEntry$
+      .pipe(untilDestroyed(this))
+      .subscribe(({ timestamp, value }) => {
+        this.chordPracticeViewStore.checkText(
+          value,
+          timestamp,
+          this.practiceSet(),
+          this.phase(),
+        );
+      });
+  }
+
+  public ngOnDestroy(): void {
+    this.hotkeysService.removeShortcuts([
+      this.shortcuts.startPractice,
+      this.shortcuts.pausePractice,
+    ]);
+  }
+
+  public startPractice() {
+    if (!this.isFocus()) {
+      this.input().nativeElement.focus();
+      this.restartAnimationSubject.next();
+      this.restartIdleTimerSubject.next();
+    }
+  }
+
+  public onInput(event: InputEvent) {
+    const timestamp = Date.now();
+    const value = this.inputValue();
+    this.entrySubject.next({ timestamp, value });
+  }
+
+  public pausePractice() {
+    this.chordPracticeViewStore.pause();
+  }
+}

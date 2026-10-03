@@ -1,0 +1,257 @@
+{
+  "general": {
+    "step-info": "Step {step}/{total}: ",
+    "chord-speed-unit": "ChPM",
+    "chords-loading-message": "Loading chords...",
+    "chords-loaded-message": "The chords are loaded successfully.",
+    "device-layout-loading-message": "Loading device layout...",
+    "device-layout-loaded-message": "The device layout is loaded successfully.",
+    "cancel-action": "cancel",
+    "close-action": "close",
+    "delete-confirm-button": "Yes. Delete them.",
+    "delete-single-confirm-button": "Yes. Delete it.",
+    "start-action": "start",
+    "pause-action": "pause",
+    "enter-action": "enter",
+    "load-device-layout-and-chords-from-device": "Load the device layout and the chords from device",
+    "device-layout-and-chords-loaded-message": "The device layout and the chords are loaded successfully."
+  },
+  "home-page": {
+    "website-name": "Chara Lite",
+    "summary": [
+      "An unofficial chord practice tool tailored for",
+      "CharaChorder Lite",
+      ""
+    ],
+    "source-code": "source code",
+    "remark": "Chara (pronunciation: /ˈkɛərə/), β Canum Venaticorum, is the second-brightest star in the northern constellation of Canes Venatici."
+  },
+  "nav": {
+    "page": {
+      "home": {
+        "title": "home",
+        "tooltip": "Go to Home page",
+        "aria-label": "home page link"
+      },
+      "settings": {
+        "title": "settings",
+        "tooltip": "Go to Settings page",
+        "aria-label": "settings page link"
+      },
+      "information": {
+        "title": "info",
+        "tooltip": "Go to Information page",
+        "aria-label": "information page link"
+      },
+      "chords": {
+        "title": "chords",
+        "tooltip": "Go to Chords page",
+        "aria-label": "chords page link"
+      },
+      "adaptation": {
+        "title": "adapt",
+        "tooltip": "Go to Adaptation page",
+        "aria-label": "adaptation page link",
+        "lock-message": "Load device layout and chords on Settings page to use the Adaptation page."
+      },
+      "realization": {
+        "title": "realize",
+        "tooltip": "Go to Realization page",
+        "aria-label": "realization page link",
+        "lock-message": "You need to have at least one chord passing the Adaptation phase to access the Realization page."
+      },
+      "accumulation": {
+        "title": "accum",
+        "tooltip": "Go to Accumulation page",
+        "aria-label": "accumulation page link",
+        "lock-message": "You need to have at least one chord passing the Realization phase to access the Accumulation page."
+      }
+    },
+    "open-hotkey-dialog": {
+      "tooltip": "Open hotkey dialog"
+    }
+  },
+  "settings-page": {
+    "title": "settings",
+    "panel-header": {
+      "quick-setting": "quick setting",
+      "os-keyboard-layout": "OS keyboard layout",
+      "data-deletion": "data deletion",
+      "visibility": "visibility",
+      "ui-language": "UI language",
+      "phase": "phase"
+    }
+  },
+  "quick-setting": {
+    "device-layout-non-loaded": "Device layout non-loaded",
+    "device-layout-loaded": "Device layout loaded",
+    "chord-stats": "{count, plural, =0 {No loaded chords} one {1 loaded chord} other {{count} loaded chords}}"
+  },
+  "os-keyboard-layout-setting": {
+    "search-placeholder": "Find layout...",
+    "search-no-entry": "No matching layout was found.",
+    "open-reference-button-tooltip": "open reference website for this layout",
+    "reset-button-tooltip": "reset"
+  },
+  "data-deletion-setting": {
+    "delete-loaded-device-layout": "delete loaded device layout",
+    "delete-all-loaded-chords": "delete all loaded chords",
+    "device-layout-deleted": "The loaded device layouts have been deleted.",
+    "chords-deleted": "All loaded chords have been deleted."
+  },
+  "delete-device-layout-confirm-dialog": {
+    "description": "Are you sure to delete the loaded device layout?"
+  },
+  "delete-chords-confirm-dialog": {
+    "description": "Are you sure to delete all loaded chords?"
+  },
+  "visibility-setting": {
+    "speedometer": "speedometer"
+  },
+  "phase-setting": {
+    "adaptation": "adaptation",
+    "realization": "realization",
+    "practice-set-size": {
+      "label": "practice set size",
+      "hint": "Number of chords to practice at the same time"
+    },
+    "min-reps-to-pass": {
+      "label": "min reps to pass",
+      "hint": "Minimum number of practice for a chord required to pass the phase"
+    },
+    "min-speed-to-pass": {
+      "label": "min speed (ChPM) to pass",
+      "hint": "Minimum entry speed for a chord required to pass the phase"
+    }
+  },
+  "chords-page": {
+    "load-chords-from-device-button": "load chords from device",
+    "load-chords-from-file-button": "load chords from file",
+    "file-input-aria-label": "file input for selecting a chord library file to load into this application",
+    "table-column": {
+      "chord": "Chord",
+      "input": "Input",
+      "output-text": "Output (text)",
+      "output-keys": "Output (keys)",
+      "ancestors": "Ancestor Chords",
+      "compound": "Compound Chord",
+      "dynamic-library": "Dynamic Library",
+      "adaptation": "Adaptation",
+      "realization": "Realization",
+      "accumulation": "Accumulation",
+      "chpm": "ChPM",
+      "count": "Count"
+    },
+    "selected-chord-chip-text": "{count, plural, one {1 chord selected} other {{count} chords selected}}",
+    "table-count-summary": "{filteredCount} of {totalCount} chords",
+    "bookmark-single": "Bookmark",
+    "unbookmark-single": "Unbookmark",
+    "block-single": "Block",
+    "unblock-single": "Unblock",
+    "bookmark-selected": "Bookmark selected chord(s)",
+    "unbookmark-selected": "Unbookmark selected chord(s)",
+    "block-selected": "Block selected chord(s)",
+    "unblock-selected": "Unblock selected chord(s)",
+    "custom-practice": "Custom practice"
+  },
+  "chord-search": {
+    "placeholder": "Search chord...",
+    "setting": {
+      "chord-input": "Chord input",
+      "chord-output": "Chord output"
+    }
+  },
+  "chord-filter": {
+    "tooltip": "Filter chords",
+    "bookmark-filter": {
+      "label": "Bookmark state",
+      "all": "All",
+      "bookmarked": "Bookmarked",
+      "unbookmarked": "Unbookmarked"
+    },
+    "block-filter": {
+      "label": "Block state",
+      "all": "All",
+      "blocked": "Blocked",
+      "unblocked": "Unblocked"
+    },
+    "dynamic-library-filter": {
+      "label": "Dynamic Library",
+      "all": "All",
+      "base": "Base"
+    }
+  },
+  "information-page": {
+    "description": "This website, Chara Lite, is an unofficial chord practice tool designed for CharaChorder Lite.",
+    "page-introductions-title": "page introductions",
+    "chords-page": {
+      "title": "chords page",
+      "description": [
+        "At chords page, you can load and view your chord library, and check the practice statistics of each chord in each phase.",
+        "You can bookmark any chords, which make them have higher priority to enter the practice cycle.",
+        "You can block any chords, which would keep them out of the practice cycle.",
+        "You can select any chords and enter a custom practice session.",
+        "You can search, filter and sort the chords by various criteria."
+      ]
+    },
+    "practice-phases": {
+      "title": "practice phases",
+      "adaptation-page": {
+        "title": "adaptation page",
+        "description": "The adaptation page helps you get familiar with the finger action for each new chord using the visual guide."
+      },
+      "realization-page": {
+        "title": "realization page",
+        "description": "The realization page helps you further memorize the connection with each chord and its finger action by showing the visual guide after a 5-second delay."
+      },
+      "accumulation-page": {
+        "title": "accumulation page",
+        "description": "The accumulation page helps you review the chords you've learned."
+      },
+      "description": [
+        "These pages are designed around the CHARA cycle, a chord practice cycle I proposed.",
+        {
+          "url": "https://andy23512.github.io/blog/tangent-s-suggestion-for-learning-english-chorded-entry-on-charachorder-devices/#What-is-CHARA-cycle",
+          "text": "You can find more details about the CHARA cycle in this blog post."
+        }
+      ]
+    },
+    "settings-page": {
+      "title": "settings page",
+      "description": "At the settings page, you can adjust various tool options, including device layout, chord library, OS keyboard layout, practice phase parameters, component visibility, UI language, etc."
+    },
+    "disclaimers": {
+      "title": "disclaimers",
+      "description": [
+        [
+          "This site is not affiliated, associated, authorized, endorsed by, or in any way officially connected with CharaChorder. Their official website can be found at ",
+          "{{charachorder_url}}",
+          "."
+        ],
+        "Your typing statistics and settings in this tool are kept and stored locally in the localStorage of your browser. They are not transmitted to any other place via this tool."
+      ]
+    }
+  },
+  "hotkey-dialog": {
+    "title": "hotkeys"
+  },
+  "hotkey": {
+    "global": {
+      "name": "global",
+      "toggle-hotkey-dialog": "toggle hotkey dialog"
+    },
+    "practice-phase-pages": {
+      "name": "practice phase pages (adaptation, realization, accumulation)",
+      "start-or-resume-the-practice": "start or resume the practice",
+      "pause-the-practice": "pause the practice"
+    }
+  },
+  "custom-practice-setting-dialog": {
+    "title": "custom practice setting",
+    "hint-display-mode": {
+      "label": "hint display mode",
+      "always": "Alway show the hint (like Adaptation page)",
+      "timeout": "Show the hint after 5-second timeout (like Realization page)"
+    }
+  }
+}

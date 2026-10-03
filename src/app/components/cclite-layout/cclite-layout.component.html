@@ -1,0 +1,21 @@
+<svg
+  class="overflow-visible"
+  width="100%"
+  height="100%"
+  shape-rendering="crispEdges"
+  text-rendering="geometricPrecision"
+  preserveAspectRatio="xMidYMid meet"
+  [attr.viewBox]="'0 0 ' + keyboard.width + ' ' + keyboard.height"
+>
+  @for (key of keyboard.keys; track key.positionCode) {
+    <g
+      appCcliteLayoutKey
+      [x]="key.x"
+      [y]="key.y"
+      [width]="key.width"
+      [height]="key.height"
+      [positionCode]="key.positionCode"
+      [highlightPositionCodes]="highlightPositionCodes()"
+    ></g>
+  }
+</svg>

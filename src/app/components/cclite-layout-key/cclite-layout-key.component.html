@@ -1,0 +1,30 @@
+<svg:rect
+  fill="transparent"
+  class="stroke-white print:stroke-black"
+  [attr.stroke-width]="strokeWidth()"
+  [attr.x]="x()"
+  [attr.y]="y()"
+  [attr.width]="width()"
+  [attr.height]="height()"
+  rx="1"
+></svg:rect>
+<svg:rect
+  class="fill-chara-500 print:fill-black"
+  [attr.x]="x()"
+  [attr.y]="y()"
+  [attr.width]="width()"
+  [attr.height]="height()"
+  rx="1"
+  [attr.opacity]="
+    highlightPositionCodes().includes(positionCode()) ? highlightOpacity() : 0
+  "
+></svg:rect>
+<svg:rect
+  class="fill-white print:fill-black"
+  [attr.x]="x() + width() * 0.365"
+  [attr.y]="y() + height() * 0.8"
+  [attr.width]="width() * 0.27"
+  [attr.height]="height() * 0.055"
+  [attr.rx]="height() * 0.028"
+  [attr.opacity]="[30, 33].includes(positionCode()) ? 0.45 : 0"
+></svg:rect>

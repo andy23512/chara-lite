@@ -1,0 +1,68 @@
+<h2 class="mb-3 text-2xl">
+  {{ "settings-page.title" | translate | realTitleCase }}
+</h2>
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.quick-setting" | translate | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-quick-setting-panel-content></app-quick-setting-panel-content>
+    </ng-template>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.os-keyboard-layout"
+        | translate
+        | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-os-keyboard-layout-setting-panel-content></app-os-keyboard-layout-setting-panel-content>
+    </ng-template>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.data-deletion" | translate | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-data-deletion-setting-panel-content></app-data-deletion-setting-panel-content>
+    </ng-template>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.phase" | translate | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-phase-setting-panel-content></app-phase-setting-panel-content>
+    </ng-template>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.visibility" | translate | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-visibility-setting-panel-content></app-visibility-setting-panel-content>
+    </ng-template>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-xl">{{
+      "settings-page.panel-header.ui-language" | translate | realTitleCase
+    }}</mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <div>
+        <mat-button-toggle-group
+          class="opacity-80"
+          [ngModel]="languageSettingStore.uiLanguage()"
+          (ngModelChange)="setLanguage($event)"
+          [hideSingleSelectionIndicator]="true"
+        >
+          @for (language of supportedLanguages; track language.id) {
+            <mat-button-toggle [value]="language.id">
+              {{ language.name }}
+            </mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+      </div>
+    </ng-template>
+  </mat-expansion-panel>
+</mat-accordion>

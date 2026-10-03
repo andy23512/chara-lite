@@ -1,0 +1,257 @@
+{
+  "general": {
+    "step-info": "ステップ {step}/{total}：",
+    "chord-speed-unit": "和音毎分",
+    "chords-loading-message": "和音を読み込んでいます...",
+    "chords-loaded-message": "和音の読み込みに成功しました。",
+    "device-layout-loading-message": "デバイスレイアウトを読み込んでいます...",
+    "device-layout-loaded-message": "デバイスレイアウトの読み込みに成功しました。",
+    "cancel-action": "キャンセル",
+    "close-action": "閉じる",
+    "delete-confirm-button": "はい、削除します。",
+    "delete-single-confirm-button": "はい、削除します。",
+    "start-action": "開始",
+    "pause-action": "一時停止",
+    "enter-action": "入る",
+    "load-device-layout-and-chords-from-device": "デバイスからデバイスレイアウトと和音を読み込む",
+    "device-layout-and-chords-loaded-message": "デバイスレイアウトと和音の読み込みに成功しました。"
+  },
+  "home-page": {
+    "website-name": "Chara Lite カラ・ライト",
+    "summary": [
+      "",
+      "CharaChorder Lite",
+      "向けにカスタマイズされた非公式和音練習ツール"
+    ],
+    "source-code": "ソースコード",
+    "remark": "Chara（発音：/ˈkɛərə/）、カラ、りょうけん座 β 星、北の星座である獵犬座の第二の明るい星。"
+  },
+  "nav": {
+    "page": {
+      "home": {
+        "title": "ホーム",
+        "tooltip": "ホームページへ移動",
+        "aria-label": "ホームページリンク"
+      },
+      "settings": {
+        "title": "設定",
+        "tooltip": "設定ページへ移動",
+        "aria-label": "設定ページリンク"
+      },
+      "information": {
+        "title": "情報",
+        "tooltip": "情報ページへ移動",
+        "aria-label": "情報ページリンク"
+      },
+      "chords": {
+        "title": "和音",
+        "tooltip": "和音ページへ移動",
+        "aria-label": "和音ページリンク"
+      },
+      "adaptation": {
+        "title": "適応",
+        "tooltip": "適応ページへ移動",
+        "aria-label": "適応ページリンク",
+        "lock-message": "設定ページでデバイスのレイアウトと和音を読み込んで、適応ページを使用してください。"
+      },
+      "realization": {
+        "title": "実現",
+        "tooltip": "実現ページへ移動",
+        "aria-label": "実現ページリンク",
+        "lock-message": "実装ページを使用するには、適応フェーズを少なくとも1つの和音でクリアする必要があります。"
+      },
+      "accumulation": {
+        "title": "蓄積",
+        "tooltip": "蓄積ページへ移動",
+        "aria-label": "蓄積ページリンク",
+        "lock-message": "蓄積ページを使用するには、実装フェーズを少なくとも1つの和音でクリアする必要があります。"
+      }
+    },
+    "open-hotkey-dialog": {
+      "tooltip": "ホットキーダイアログを開く"
+    }
+  },
+  "settings-page": {
+    "title": "設定",
+    "panel-header": {
+      "quick-setting": "クイック設定",
+      "os-keyboard-layout": "OS キーボードレイアウト",
+      "data-deletion": "データ削除",
+      "visibility": "表示",
+      "ui-language": "UI 言語",
+      "phase": "フェーズ"
+    }
+  },
+  "quick-setting": {
+    "device-layout-non-loaded": "デバイスレイアウト未読込",
+    "device-layout-loaded": "デバイスレイアウト読込済",
+    "chord-stats": "{count} 個の読み込みされた和音"
+  },
+  "os-keyboard-layout-setting": {
+    "search-placeholder": "レイアウトを検索...",
+    "search-no-entry": "一致するレイアウトが見つかりませんでした。",
+    "open-reference-button-tooltip": "このレイアウトの参考ウェブサイトを開く",
+    "reset-button-tooltip": "リセット"
+  },
+  "data-deletion-setting": {
+    "delete-loaded-device-layout": "読み込みされたデバイスレイアウトを削除",
+    "delete-all-loaded-chords": "すべての読み込みされた和音を削除",
+    "device-layout-deleted": "読み込みされたデバイスレイアウトが削除されました。",
+    "chords-deleted": "すべての読み込みされた和音が削除されました。"
+  },
+  "delete-device-layout-confirm-dialog": {
+    "description": "読み込みされたデバイスレイアウトを削除してもよろしいですか？"
+  },
+  "delete-chords-confirm-dialog": {
+    "description": "読み込みされた和音をすべて削除してもよろしいですか？"
+  },
+  "visibility-setting": {
+    "speedometer": "スピードメーター"
+  },
+  "phase-setting": {
+    "adaptation": "適応",
+    "realization": "実現",
+    "practice-set-size": {
+      "label": "練習セットサイズ",
+      "hint": "同時に練習する和音の数"
+    },
+    "min-reps-to-pass": {
+      "label": "合格するための最小反復回数",
+      "hint": "ある和音を合格と見なすために必要な最小反復回数"
+    },
+    "min-speed-to-pass": {
+      "label": "合格するための最小速度（分速）",
+      "hint": "ある和音を合格と見なすために必要な最小速度（分速）"
+    }
+  },
+  "chords-page": {
+    "load-chords-from-device-button": "デバイスから和音を読み込む",
+    "load-chords-from-file-button": "ファイルから和音を読み込む",
+    "file-input-aria-label": "このアプリケーションに読み込む和音ライブラリファイルを選択するためのファイル入力",
+    "table-column": {
+      "chord": "和音",
+      "input": "入力",
+      "output-text": "出力 (文字)",
+      "output-keys": "出力 (キー)",
+      "ancestors": "上位和音",
+      "compound": "複合和音",
+      "dynamic-library": "動的和音ライブラリ",
+      "adaptation": "適応",
+      "realization": "実現",
+      "accumulation": "蓄積",
+      "chpm": "分速",
+      "count": "回数"
+    },
+    "selected-chord-chip-text": "{count} 和音選択",
+    "table-count-summary": "{filteredCount}/{totalCount} 和音",
+    "bookmark-single": "ブックマーク",
+    "unbookmark-single": "ブックマーク解除",
+    "block-single": "ブロック",
+    "unblock-single": "ブロック解除",
+    "bookmark-selected": "選択した和音をブックマーク",
+    "unbookmark-selected": "選択した和音のブックマーク解除",
+    "block-selected": "選択した和音をブロック",
+    "unblock-selected": "選択した和音のブロック解除",
+    "custom-practice": "カスタム練習"
+  },
+  "chord-search": {
+    "placeholder": "和音を検索...",
+    "setting": {
+      "chord-input": "和音入力",
+      "chord-output": "和音出力"
+    }
+  },
+  "chord-filter": {
+    "tooltip": "和音をフィルタリング",
+    "bookmark-filter": {
+      "label": "ブックマーク状態",
+      "all": "すべて",
+      "bookmarked": "ブックマーク済み",
+      "unbookmarked": "未ブックマーク"
+    },
+    "block-filter": {
+      "label": "ブロック状態",
+      "all": "すべて",
+      "blocked": "ブロック済み",
+      "unblocked": "未ブロック"
+    },
+    "dynamic-library-filter": {
+      "label": "動的和音ライブラリ",
+      "all": "すべて",
+      "base": "ベース"
+    }
+  },
+  "information-page": {
+    "description": "このウェブサイト、「Chara Lite カラ・ライト」は、CharaChorder Lite 用に設計された非公式和音練習ツールです。",
+    "page-introductions-title": "ページ紹介",
+    "chords-page": {
+      "title": "和音ページ",
+      "description": [
+        "和音ページでは、和音ライブラリを読み込んで表示したり、各和音の練習状況（各段階）を確認したりできます。",
+        "和音をブックマークして、練習ループで優先的に練習できます。",
+        "和音をブロックして、練習ループから除外できます。",
+        "任意の和音を選択して、カスタム練習セッションを開始できます。",
+        "さまざまな基準で和音を検索、フィルタリング、並べ替えることができます。"
+      ]
+    },
+    "practice-phases": {
+      "title": "練習フェーズ",
+      "adaptation-page": {
+        "title": "適応ページ",
+        "description": "適応ページでは、画像を使って新しい和音の指の動きを習得できます。"
+      },
+      "realization-page": {
+        "title": "実現ページ",
+        "description": "実現ページでは、5秒の遅延を利用して画像を表示し、和音とその指の動きの記憶を強化します。"
+      },
+      "accumulation-page": {
+        "title": "蓄積ページ",
+        "description": "蓄積ページでは、学習した和音を復習できます。"
+      },
+      "description": [
+        "これらのページは、私が提案する和音練習ループ「CHARAループ」に基づいて設計されています。",
+        {
+          "url": "https://andy23512.github.io/blog/tangent-s-suggestion-for-learning-english-chorded-entry-on-charachorder-devices/#What-is-CHARA-cycle",
+          "text": "CHARAループに関するより詳しい情報は、こちらのブログ記事をご覧ください。"
+        }
+      ]
+    },
+    "settings-page": {
+      "title": "設定ページ",
+      "description": "設定ページでは、デバイスレイアウト、和音ライブラリ、OS キーボードレイアウト、練習フェーズパラメータ、いくつかのコンポーネントの表示、UI 言語など、ツールの様々な設定を調整できます。"
+    },
+    "disclaimers": {
+      "title": "免責事項",
+      "description": [
+        [
+          "このサイトは、CharaChorder と提携、関連、認可、推奨、またはいかなる形でも公式な関係を有していません。CharaChorder の公式サイトは、 ",
+          "{{charachorder url}}",
+          " でご覧いただけます。"
+        ],
+        "このツールにおける入力統計情報と設定は、ブラウザの localStorage にローカルに保存されます。このツールを介して他の場所に送信されることはありません。"
+      ]
+    }
+  },
+  "hotkey-dialog": {
+    "title": "ホットキー"
+  },
+  "hotkey": {
+    "global": {
+      "name": "全域",
+      "toggle-hotkey-dialog": "ホットキーダイアログの切り替え"
+    },
+    "practice-phase-pages": {
+      "name": "練習フェーズページ（適応、実現、蓄積）",
+      "start-or-resume-the-practice": "練習を開始または再開",
+      "pause-the-practice": "練習を一時停止"
+    }
+  },
+  "custom-practice-setting-dialog": {
+    "title": "カスタム練習設定",
+    "hint-display-mode": {
+      "label": "ヒント表示モード",
+      "always": "常にヒントを表示する（適応ページと同様）",
+      "timeout": "5秒後にヒントを表示する（実現ページと同様）"
+    }
+  }
+}
