@@ -18,12 +18,9 @@
   },
   "home-page": {
     "website-name": "Chara Lite 常陳四・簡",
-    "summary": [
-      "專為",
-      "CharaChorder Lite",
-      "量身打造的非官方和弦練習工具"
-    ],
+    "summary": ["專為", "CharaChorder Lite", "量身打造的非官方和弦練習工具"],
     "source-code": "原始碼",
+    "chara": "Chara 常陳四",
     "remark": "Chara（發音：/ˈkɛərə/），即常陳四，也叫獵犬座β，是獵犬座第二亮星。"
   },
   "nav": {
