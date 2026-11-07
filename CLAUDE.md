@@ -12,7 +12,7 @@ Deployed as a static site to GitHub Pages at https://andy23512.github.io/chara-l
 
 - Angular 21 (standalone, signals-based) + NgRx (`@ngrx/signals`, `@ngrx/store`, `@ngrx/component`)
 - Nx 22 as the build/task runner (single-project workspace, executor is `@angular-devkit/build-angular`)
-- TypeScript 5.9, SCSS, Tailwind CSS, Angular Material, AG Grid, Highcharts
+- TypeScript 5.9, SCSS, Tailwind CSS, Angular Material, AG Grid
 - `@ngx-translate` for i18n (locale files under `src/assets/i18n/`: en, zh-TW, jp)
 - Package manager: Yarn (Berry, `node-modules` linker — see `.yarnrc.yml`)
 - Web Serial API used directly (`src/app/services/serial-handler.service.ts`, `serial-port-handler.service.ts`) — **still talks the CharaChorder 3D device protocol, inherited from Chara, not yet switched to CharaChorder Lite / `tangent-cc-lib`.**
@@ -34,7 +34,7 @@ There is no separate lint script in `package.json`.
 - No `angular.json` — project/build config lives in `project.json` (Nx project) and `nx.json` (workspace defaults).
 - `src/app/` layout: `pages/` (route-level: chords-page, adaptation-page, realization-page, accumulation-page, custom-practice-page, settings-page, home-page, information-page), `components/`, `services/`, `stores/` (NgRx signal stores), `models/`, `pipes/`, `directives/`, `guards/`, `utils/`, `mock/`. This page structure is the part worth keeping — it's the CHARA cycle, not 3D-device-specific.
 - Web worker support is wired up (`tsconfig.worker.json`, `worker/worker.d.ts`) but no `*.worker.ts` files exist yet — it's scaffolding, not in active use.
-- `@mlc-ai/web-runtime` / `web-tokenizers` / `web-xgrammar` are dependencies but not currently referenced anywhere in `src/` — likely for a planned/experimental feature, not wired into the app yet.
+- `@mlc-ai/web-tokenizers` / `web-xgrammar` are dependencies but not currently referenced anywhere in `src/` — likely for a planned/experimental feature, not wired into the app yet. (`@mlc-ai/web-runtime`, `highcharts`, `highcharts-angular`, `@webed/angular-tooltip`, `ngx-print` were removed as unused; `web-runtime` pulled in the vulnerable `fix` → `underscore@1.1.6` chain.)
 - `dexie` is a dependency but not currently used in `src/app` — check before assuming IndexedDB persistence is active.
 - `migrations.json` is Nx's auto-generated migration log, not app logic — don't hand-edit.
 - `tangent-cc-lib` in `package.json` has already been bumped to Alnilam's version (`0.0.56`, up from Chara's `0.0.51`) to pick up the `HighlightKeyCombination` API the Lite layout components need — device I/O itself hasn't been migrated yet, though.
