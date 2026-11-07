@@ -199,6 +199,7 @@ export class ChordPracticeViewComponent implements OnInit, OnDestroy {
     this.hotkeysService
       .addShortcut({
         keys: this.shortcuts.pausePractice,
+        allowIn: ['INPUT'],
       })
       .subscribe(() => {
         this.input().nativeElement.blur();
