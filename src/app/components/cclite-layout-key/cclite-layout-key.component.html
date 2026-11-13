@@ -28,3 +28,13 @@
   [attr.rx]="height() * 0.028"
   [attr.opacity]="[30, 33].includes(positionCode()) ? 0.45 : 0"
 ></svg:rect>
+@let label = keyLabel();
+@if (label) {
+  <svg:g
+    appKeyLabel
+    [x]="x() + width() / 2"
+    [y]="y() + height() / 2"
+    [fontSize]="fontSize()"
+    [label]="label"
+  ></svg:g>
+}

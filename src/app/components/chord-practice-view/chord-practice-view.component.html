@@ -60,6 +60,7 @@
 <app-cclite-layout
   class="box-border block flex-1 overflow-hidden px-5 pb-5"
   [highlightPositionCodes]="showHint() ? highlightedPositionCodes() : []"
+  [keyLabelMap]="keyLabelMap()"
 ></app-cclite-layout>
 @if (showHint()) {
   <div

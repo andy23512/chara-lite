@@ -16,6 +16,7 @@
       [height]="key.height"
       [positionCode]="key.positionCode"
       [highlightPositionCodes]="highlightPositionCodes()"
+      [keyLabel]="keyLabelMap()[key.positionCode] ?? null"
     ></g>
   }
 </svg>

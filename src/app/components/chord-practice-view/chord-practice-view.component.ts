@@ -37,6 +37,9 @@ import { IconGuardPipe } from 'src/app/pipes/icon-guard.pipe';
 import { RealTitleCasePipe } from 'src/app/pipes/real-title-case.pipe';
 import { ChordPracticeViewStore } from 'src/app/stores/chord-practice-view.store';
 import { DeviceLayoutStore } from 'src/app/stores/device-layout.store';
+import { KeyboardLayoutSettingStore } from 'src/app/stores/keyboard-layout-setting.store';
+import { getKeyLabelMap } from 'src/app/utils/key-label.utils';
+import { OperatingSystemService } from 'src/app/services/operating-system.service';
 import { CcliteLayoutComponent } from '../cclite-layout/cclite-layout.component';
 import { DynamicLibraryAncestorsChipComponent } from '../dynamic-library-ancestors-chip/dynamic-library-ancestors-chip.component';
 import { SpeedometerComponent } from '../speedometer/speedometer.component';
@@ -69,6 +72,10 @@ import { StepperComponent } from '../stepper/stepper.component';
 export class ChordPracticeViewComponent implements OnInit, OnDestroy {
   private readonly chordPracticeViewStore = inject(ChordPracticeViewStore);
   private readonly deviceLayoutStore = inject(DeviceLayoutStore);
+  private readonly keyboardLayoutSettingStore = inject(
+    KeyboardLayoutSettingStore,
+  );
+  private readonly operatingSystemService = inject(OperatingSystemService);
   private readonly hotkeysService = inject(HotkeysService);
 
   public practiceSet = input.required<ChordGroup[]>();
@@ -147,6 +154,20 @@ export class ChordPracticeViewComponent implements OnInit, OnDestroy {
       return 0;
     }
     return animationFrameIndex % totalSteps;
+  });
+
+  // Text label of every key, taken from the primary layer of profile A.
+  protected keyLabelMap = computed(() => {
+    const profileAPrimaryLayer =
+      this.deviceLayoutStore.profileLayoutMap()['A']?.[0];
+    if (!profileAPrimaryLayer) {
+      return {};
+    }
+    return getKeyLabelMap(
+      profileAPrimaryLayer,
+      this.keyboardLayoutSettingStore.selectedEntity(),
+      this.operatingSystemService.getOS(),
+    );
   });
 
   protected highlightedPositionCodes = computed(() => {

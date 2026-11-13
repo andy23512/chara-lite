@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RawKeyLabel } from 'tangent-cc-lib';
 import { CcliteLayoutKeyComponent } from '../cclite-layout-key/cclite-layout-key.component';
 
 const KEY_SIZE = 10;
@@ -100,6 +101,7 @@ const KEYBOARD = generateCCLiteKeyboard();
 })
 export class CcliteLayoutComponent {
   public highlightPositionCodes = input<number[]>([]);
+  public keyLabelMap = input<Partial<Record<number, RawKeyLabel>>>({});
 
   readonly keyboard = KEYBOARD;
 }

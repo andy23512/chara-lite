@@ -1,0 +1,39 @@
+@let l = label();
+@if (l.type === KeyLabelType.String && l.isDeadKey) {
+  <svg:line
+    [attr.x1]="x()"
+    [attr.y1]="y() - fontSize() / 2"
+    [attr.x2]="x()"
+    [attr.y2]="y() + fontSize() / 2"
+    class="stroke-chara-900 print:stroke-chara-200"
+    [attr.stroke-width]="fontSize() / 2"
+  ></svg:line>
+}
+@if (l.type === KeyLabelType.String && l.isWindowsAltCode) {
+  <svg:line
+    [attr.x1]="x()"
+    [attr.y1]="y() - fontSize() / 2"
+    [attr.x2]="x()"
+    [attr.y2]="y() + fontSize() / 2"
+    class="stroke-yellow-900 print:stroke-yellow-300"
+    [attr.stroke-width]="fontSize() / 2"
+  ></svg:line>
+}
+<svg:text
+  [attr.x]="x()"
+  [attr.y]="y()"
+  dominant-baseline="central"
+  text-anchor="middle"
+  [style.font-size.px]="getFontSize(l)"
+  [class.material-icons]="l.type === KeyLabelType.Icon"
+  [class.font-logos]="l.type === KeyLabelType.Logo"
+  [class.fill-current]="l.type !== KeyLabelType.ActionCode"
+  [class.fill-red-500]="l.type === KeyLabelType.ActionCode"
+  [ngClass]="l.type === KeyLabelType.Logo ? l.c : null"
+>
+  @if (l.type === KeyLabelType.ActionCode) {
+    ({{ l.c }})
+  } @else {
+    {{ l.c }}
+  }
+</svg:text>
