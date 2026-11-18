@@ -98,6 +98,11 @@ export class ChordPracticeViewComponent implements OnInit, OnDestroy {
   private readonly debouncedEntry$ = this.entrySubject
     .asObservable()
     .pipe(debounceTime(100));
+  // Physical keys currently held down. While any key is held, the device may
+  // still be about to rewrite the input (e.g. backspace the raw key presses),
+  // so the entry must not be checked yet.
+  private readonly pressedKeys = new Set<string>();
+  private lastInputTimestamp = 0;
   private readonly restartAnimationSubject = new Subject<void>();
   private readonly animationFrameIndex = toSignal(
     this.restartAnimationSubject
@@ -229,6 +234,9 @@ export class ChordPracticeViewComponent implements OnInit, OnDestroy {
     this.debouncedEntry$
       .pipe(untilDestroyed(this))
       .subscribe(({ timestamp, value }) => {
+        if (this.pressedKeys.size > 0) {
+          return;
+        }
         this.chordPracticeViewStore.checkText(
           value,
           timestamp,
@@ -247,19 +255,39 @@ export class ChordPracticeViewComponent implements OnInit, OnDestroy {
 
   public startPractice() {
     if (!this.isFocus()) {
+      this.pressedKeys.clear();
+      this.inputValue.set('');
       this.input().nativeElement.focus();
       this.restartAnimationSubject.next();
       this.restartIdleTimerSubject.next();
     }
   }
 
+  public onKeyDown(event: KeyboardEvent) {
+    this.pressedKeys.add(event.code);
+  }
+
+  public onKeyUp(event: KeyboardEvent) {
+    this.pressedKeys.delete(event.code);
+    if (this.pressedKeys.size === 0 && this.inputValue()) {
+      // Re-arm the debounce so the entry is checked after the last release.
+      this.entrySubject.next({
+        timestamp: this.lastInputTimestamp,
+        value: this.inputValue(),
+      });
+    }
+  }
+
   public onInput(event: InputEvent) {
     const timestamp = Date.now();
+    this.lastInputTimestamp = timestamp;
     const value = this.inputValue();
     this.entrySubject.next({ timestamp, value });
   }
 
   public pausePractice() {
+    this.pressedKeys.clear();
+    this.inputValue.set('');
     this.chordPracticeViewStore.pause();
   }
 }
