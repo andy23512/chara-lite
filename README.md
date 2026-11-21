@@ -1,5 +1,7 @@
 # Chara Lite
 
+[![CI](https://github.com/andy23512/chara-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/andy23512/chara-lite/actions/workflows/ci.yml)
+
 An unofficial chord practice tool for CharaChorder Lite
 
 ## Links
